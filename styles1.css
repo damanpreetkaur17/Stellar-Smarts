@@ -1,0 +1,78 @@
+h2 {
+    animation-duration: 4s;
+    animation-name: linear;
+    font-family: baskerville old face;
+    font-size: 30px;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 22px;
+    font-family: bradley hand itc;
+    background-image: url('https://i.pinimg.com/originals/9f/bf/a3/9fbfa33d37cb8fbf9e81b31b62331ba4.jpg');
+    background-size: 1550px 750px;
+    background-position: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    background: rgba(255, 255, 255, 0.563); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4d4e4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(30, 27, 27);
+}
+
+@media (max-width: 600px) {
+    .form-box {
+        width: 90%;
+    }
+}
+
+/* https://img.freepik.com/free-photo/digital-art-moon-wallpaper_23-2150918877.jpg   'httpsound/20230520/original/pngtree-3d-planets-in-space-wallpapers-for-mobile-picture-image_2670749.jp */

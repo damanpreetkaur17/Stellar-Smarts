@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles4.css">
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Space Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <div class="question-page" id="question1">
+            <h1>Question 1: What was the first space station launched into orbit?</h1>
+            <form>
+                <label><input type="radio" name="q1" value="1"> Skylab</label><br>
+                <label><input type="radio" name="q1" value="2"> Mir</label><br>
+                <label><input type="radio" name="q1" value="3"> ISS</label><br>
+                <label><input type="radio" name="q1" value="4"> Almaz</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint1')">💡 Hint</button>
+            <p class="hint" id="hint1" style="display:none;">It was launched by the USA in 1973.</p>
+            <button class="next-button" onclick="nextQuestion(2)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question2" style="display:none;">
+            <h1>Question 2: Which planet has the most moons?</h1>
+            <form>
+                <label><input type="radio" name="q2" value="1"> Earth</label><br>
+                <label><input type="radio" name="q2" value="2"> Jupiter</label><br>
+                <label><input type="radio" name="q2" value="3"> Saturn</label><br>
+                <label><input type="radio" name="q2" value="4"> Mars</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint2')">💡 Hint</button>
+            <p class="hint" id="hint2" style="display:none;">This planet has more than 79 known moons.</p>
+            <button class="next-button" onclick="nextQuestion(3)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question3" style="display:none;">
+            <h1>Question 3: What is the name of the rover that landed on Mars in 2012?</h1>
+            <form>
+                <label><input type="radio" name="q3" value="1"> Opportunity</label><br>
+                <label><input type="radio" name="q3" value="2"> Curiosity</label><br>
+                <label><input type="radio" name="q3" value="3"> Spirit</label><br>
+                <label><input type="radio" name="q3" value="4"> Perseverance</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint3')">💡 Hint</button>
+            <p class="hint" id="hint3" style="display:none;">Its name reflects a desire to learn more about the planet.</p>
+            <button class="next-button" onclick="nextQuestion(4)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question4" style="display:none;">
+            <h1>Question 4: Who was the first American woman in space?</h1>
+            <form>
+                <label><input type="radio" name="q4" value="1"> Sally Ride</label><br>
+                <label><input type="radio" name="q4" value="2"> Mae Jemison</label><br>
+                <label><input type="radio" name="q4" value="3"> Eileen Collins</label><br>
+                <label><input type="radio" name="q4" value="4"> Jan Davis</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint4')">💡 Hint</button>
+            <p class="hint" id="hint4" style="display:none;">She flew on the Space Shuttle Challenger.</p>
+            <button class="next-button" onclick="nextQuestion(5)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question5" style="display:none;">
+            <h1>Question 5: What is the primary gas found in the Sun?</h1>
+            <form>
+                <label><input type="radio" name="q5" value="1"> Hydrogen</label><br>
+                <label><input type="radio" name="q5" value="2"> Helium</label><br>
+                <label><input type="radio" name="q5" value="3"> Oxygen</label><br>
+                <label><input type="radio" name="q5" value="4"> Carbon Dioxide</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint5')">💡 Hint</button>
+            <p class="hint" id="hint5" style="display:none;">It is the lightest and most abundant element in the universe.</p>
+            <button class="next-button" onclick="finishQuiz()">Finish</button>
+        </div>
+    </div>
+
+    <div class="question-page" id="result" style="display:none;">
+        <h1>Quiz Completed!</h1>
+        <p>Your score is: <span id="score-display"></span>/5</p>
+    </div>
+    
+
+    <script>
+let score = 0;
+
+function showHint(hintId) {
+    document.getElementById(hintId).style.display = 'block';
+}
+
+function nextQuestion(questionNumber) {
+    const prevQuestion = questionNumber - 1;
+    const selected = document.querySelector(`input[name="q${prevQuestion}"]:checked`);
+
+
+    if (prevQuestion > 0 && !selected) {
+        alert("Please select an answer before proceeding.");
+        return;
+    }
+
+
+    if (selected) {
+        if (selected.value === "2" && prevQuestion === 1) score++;
+        if (selected.value === "2" && prevQuestion === 2) score++;
+        if (selected.value === "2" && prevQuestion === 3) score++;
+        if (selected.value === "1" && prevQuestion === 4) score++;
+        if (selected.value === "1" && prevQuestion === 5) score++;
+    }
+
+    const pages = document.querySelectorAll('.question-page');
+    pages.forEach(page => page.style.display = 'none');
+    const nextPage = document.getElementById('question' + questionNumber);
+
+    if (nextPage) {
+        nextPage.style.display = 'block';
+    } else {
+        finishQuiz(); 
+    }
+}
+
+function finishQuiz() {
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <h1>Quiz Completed!</h1>
+        <p>Your score is: <span id="score-display">${score}</span>/5</p>
+
+        <a href="Quiz.html" class="home-button">Home</a>
+    `;
+}
+
+function restartQuiz() {
+    score = 0;
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <div class="question-page" id="question1">
+            <h1>Question 1: What was the first space station launched into orbit?</h1>
+            <form>
+                <label><input type="radio" name="q1" value="1"> Skylab</label><br>
+                <label><input type="radio" name="q1" value="2"> Mir</label><br>
+                <label><input type="radio" name="q1" value="3"> ISS</label><br>
+                <label><input type="radio" name="q1" value="4"> Almaz</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint1')">💡 Hint</button>
+            <p class="hint" id="hint1" style="display:none;">It was launched by the USA in 1973.</p>
+            <button class="next-button" onclick="nextQuestion(2)">Next Question</button>
+        </div>
+    `;
+}
+
+
+</script>
+</body>
+</html>

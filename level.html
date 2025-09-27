@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Space Quiz Levels</title>
+    <style>
+        body {
+            background-image: url('image2.png');
+            background-size: cover;
+            font-family: 'Baskerville Old Face';
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .quiz-levels {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            margin: 0;
+        }
+
+        .level {
+            font-family: 'Bradley Hand ITC';
+            background: rgba(211, 197, 197, 0.267);
+            border-radius: 15px;
+            padding: 20px;
+            width: calc(33.333% - 40px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+        }
+
+        .level:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .level img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #0074D9;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .level {
+                width: calc(50% - 40px); 
+            }
+
+            .quiz-levels {
+                justify-content: space-between;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .level {
+                width: 100%; 
+            }
+
+            h1 {
+                font-size: 1.5em; 
+            }
+
+            .quiz-levels {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose  Your  Quiz  Level!</h1>
+        <div class="quiz-levels">
+            <div class="level easy">
+                <img src="image8.png" alt="Easy Level" />
+                <h2>Easy</h2>
+                <a href="question1.html"><button>Start Easy Quiz</button></a>
+            </div>
+            <div class="level medium">
+                <img src="image3.jpg" alt="Medium Level" />
+                <h2>Medium</h2>
+                <a href="question2.html"><button>Start Medium Quiz</button></a>
+            </div>
+            <div class="level hard">
+                <img src="image4.avif" alt="Hard Level" />
+                <h2>Hard</h2>
+                <a href="question3.html"><button>Start Hard Quiz</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

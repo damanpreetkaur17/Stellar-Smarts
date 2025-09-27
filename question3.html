@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles5.css">
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Space Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <div id="timer" style="font-size: 1.5em; font-weight: bold; margin-bottom: 20px;">Time left: 30s</div>
+
+        <div class="question-page" id="question1">
+            <h1>Question 1: What is the most distant human-made object from Earth?</h1>
+            <form>
+                <label><input type="radio" name="q1" value="1"> Voyager 1</label><br>
+                <label><input type="radio" name="q1" value="2"> New Horizons</label><br>
+                <label><input type="radio" name="q1" value="3"> Pioneer 10</label><br>
+                <label><input type="radio" name="q1" value="4"> Hubble Space Telescope</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint1')">💡 Hint</button>
+            <p class="hint" id="hint1" style="display:none;">It was launched in 1977.</p>
+            <button class="next-button" onclick="nextQuestion(2)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question2" style="display:none;">
+            <h1>Question 2: Which astronaut holds the record for the most time spent in space?</h1>
+            <form>
+                <label><input type="radio" name="q2" value="1"> Gennady Padalka</label><br>
+                <label><input type="radio" name="q2" value="2"> Yuri Malyshev</label><br>
+                <label><input type="radio" name="q2" value="3"> Scott Kelly</label><br>
+                <label><input type="radio" name="q2" value="4"> Sergei Krikalev</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint2')">💡 Hint</button>
+            <p class="hint" id="hint2" style="display:none;">He has spent over 800 days in space.</p>
+            <button class="next-button" onclick="nextQuestion(3)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question3" style="display:none;">
+            <h1>Question 3: What is the name of the first spacecraft to land on the far side of the Moon?</h1>
+            <form>
+                <label><input type="radio" name="q3" value="1"> Luna 9</label><br>
+                <label><input type="radio" name="q3" value="2"> Chang'e 4</label><br>
+                <label><input type="radio" name="q3" value="3"> Apollo 16</label><br>
+                <label><input type="radio" name="q3" value="4"> Surveyor 1</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint3')">💡 Hint</button>
+            <p class="hint" id="hint3" style="display:none;">It was launched by China in 2018.</p>
+            <button class="next-button" onclick="nextQuestion(4)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question4" style="display:none;">
+            <h1>Question 4: Which mission was the first to send astronauts to the Moon?</h1>
+            <form>
+                <label><input type="radio" name="q4" value="1"> Apollo 11</label><br>
+                <label><input type="radio" name="q4" value="2"> Apollo 8</label><br>
+                <label><input type="radio" name="q4" value="3"> Apollo 10</label><br>
+                <label><input type="radio" name="q4" value="4"> Gemini 12</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint4')">💡 Hint</button>
+            <p class="hint" id="hint4" style="display:none;">This mission took place in 1969.</p>
+            <button class="next-button" onclick="nextQuestion(5)">Next Question</button>
+        </div>
+
+        <div class="question-page" id="question5" style="display:none;">
+            <h1>Question 5: What element is most commonly used as fuel in a hydrogen rocket?</h1>
+            <form>
+                <label><input type="radio" name="q5" value="1"> Hydrogen</label><br>
+                <label><input type="radio" name="q5" value="2"> Oxygen</label><br>
+                <label><input type="radio" name="q5" value="3"> Kerosene</label><br>
+                <label><input type="radio" name="q5" value="4"> Methane</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint5')">💡 Hint</button>
+            <p class="hint" id="hint5" style="display:none;">It is the lightest element in the universe.</p>
+            <button class="next-button" onclick="finishQuiz()">Finish</button>
+        </div>
+    </div>
+
+    <script>
+let score = 0;
+let timeLeft = 30; 
+let timer; 
+
+function startTimer(questionNumber) {
+    timeLeft = 15;
+    document.getElementById('timer').textContent = `Time left: ${timeLeft}s`;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('timer').textContent = `Time left: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert("Time's up! Please select an answer before proceeding.");
+        }
+    }, 1000);
+}
+
+function showHint(hintId) {
+    document.getElementById(hintId).style.display = 'block';
+}
+
+function nextQuestion(questionNumber) {
+    clearInterval(timer); 
+
+    const currentQuestion = questionNumber - 1;
+    const selected = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+    if (!selected) {
+        alert("Please select an answer before moving to the next question.");
+        startTimer(currentQuestion); 
+        return;
+    }
+
+    const pages = document.querySelectorAll('.question-page');
+    pages.forEach(page => page.style.display = 'none'); 
+    const nextPage = document.getElementById('question' + questionNumber);
+
+    if (nextPage) {
+        nextPage.style.display = 'block';
+    } else {
+        finishQuiz(); 
+        return;
+    }
+
+
+    if ((currentQuestion === 1 && selected.value === "1") || // Q1: Voyager 1
+        (currentQuestion === 2 && selected.value === "1") || // Q2: Gennady Padalka
+        (currentQuestion === 3 && selected.value === "2") || // Q3: Chang'e 4
+        (currentQuestion === 4 && selected.value === "1") || // Q4: Apollo 11
+        (currentQuestion === 5 && selected.value === "1")) { // Q5: Hydrogen
+        score++;
+    }
+
+    startTimer(questionNumber);
+}
+
+function finishQuiz() {
+    clearInterval(timer); 
+
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <h1>Quiz Completed!</h1>
+        <p>Your score is: <span id="score-display">${score}</span>/5</p>
+        <a href="Quiz.html" class="home-button">Home</a>
+    `;
+}
+
+function restartQuiz() {
+    score = 0;
+    const container = document.querySelector('.container');
+    container.innerHTML = `
+        <div id="timer">Time left: 15s</div>
+        <div class="question-page" id="question1">
+            <h1>Question 1: Which spacecraft is the farthest human-made object from Earth?</h1>
+            <form>
+                <label><input type="radio" name="q1" value="1"> Voyager 1</label><br>
+                <label><input type="radio" name="q1" value="2"> Pioneer 10</label><br>
+                <label><input type="radio" name="q1" value="3"> New Horizons</label><br>
+                <label><input type="radio" name="q1" value="4"> Cassini</label><br>
+            </form>
+            <button class="hint-button" onclick="showHint('hint1')">💡 Hint</button>
+            <p class="hint" id="hint1" style="display:none;">It was launched in 1977 and is still sending data.</p>
+            <button class="next-button" onclick="nextQuestion(2)">Next Question</button>
+        </div>
+    `;
+    startTimer(1);
+}
+
+startTimer(1);
+
+    </script>
+</body>
+</html>

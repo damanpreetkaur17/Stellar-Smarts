@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="icon" type="image/png" href="favicon.jpg">
+    <title>Information page</title>
+    <script>
+        // validateForm receives the submit event so we can prevent default when needed
+        function validateForm(e) {
+            // stop the browser from submitting so we can control navigation
+            if (e && e.preventDefault) e.preventDefault();
+
+            var name = document.getElementById("name").value.trim();
+            var nameError = document.getElementById("name-error");
+            var email = document.getElementById("email").value.trim();
+            var emailError = document.getElementById("email-error");
+            var phone = document.getElementById("phone").value.trim();
+            var phoneError = document.getElementById("phone-error");
+
+            // Name: allow letters and spaces, at least 1 character
+            if (name === "" || !/^[a-zA-Z\s]+$/.test(name)) {
+                nameError.style.display = "block";
+                nameError.textContent = "Please enter a valid name (letters and spaces only).";
+                return false;
+            } else {
+                nameError.style.display = "none";
+            }
+
+            // Email: basic check for '@' and a simple structure
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.style.display = "block";
+                return false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // Phone: allow only 10 digits
+            var phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                phoneError.style.display = "block";
+                return false;
+            } else {
+                phoneError.style.display = "none";
+            }
+
+            // All validations passed — navigate to level.html
+            window.location.href = "level.html";
+            return false; // prevent normal form submission
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Fill Your Credentials</h2>
+            <form onsubmit="return validateForm(event)">
+                <b><label for="name">Name:</label></b>
+                <input type="text" id="name" name="name" pattern="[a-zA-Z ]+" required>
+                <div id="name-error" style="color: red; display: none;"></div>
+
+                <b><label for="age">Age:</label></b>
+                <input type="number" id="age" name="age" required>
+
+                <b><label for="email">Email:</label></b>
+                <input type="email" id="email" name="email" required>
+                <div id="email-error" style="color: red; display: none;">Please include '@' in the email address.</div>
+
+                <b><label for="phone">Phone Number:</label></b>
+                <input type="tel" id="phone" name="phone" required>
+                <b><div id="phone-error" style="color:black; display: none;">Please enter a valid 10-digit phone number.</div></b>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

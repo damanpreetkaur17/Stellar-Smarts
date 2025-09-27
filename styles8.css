@@ -1,0 +1,176 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    overflow-x: hidden; 
+  }
+  
+  
+  .contact {
+    background: url('contact.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .contact p {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 40px;
+  }
+  
+ 
+  .contact-form {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .contact-form label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .contact-form button {
+    background-color: #f8a100;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .contact-form button:hover {
+    background-color: #d68900;
+  }
+  
+  
+  #error-message {
+    font-size: 16px;
+    margin-top: 20px;
+    color: red;
+  }
+  
+  .contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .social-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .social-links li {
+    font-size: 18px;
+  }
+  
+  .social-links a {
+    text-decoration: none;
+    color: #f8a100;
+    transition: color 0.3s;
+  }
+  
+  .social-links a:hover {
+    color: #d68900;
+  }
+  
+  footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .contact h2 {
+      font-size: 28px;
+    }
+  
+    .contact p {
+      font-size: 16px;
+    }
+  
+    .contact-form {
+      padding: 20px;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 14px;
+    }
+  
+    .contact-info h3 {
+      font-size: 20px;
+    }
+  
+    .social-links {
+      flex-direction: column;
+    }
+  
+    .social-links li {
+      margin: 10px 0;
+    }
+  }
+
+#success-message {
+    font-size: 16px;
+    margin-top: 20px;
+    color: green;
+  }
+  
+
+  

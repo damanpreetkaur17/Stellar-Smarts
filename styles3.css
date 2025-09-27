@@ -1,0 +1,184 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    line-height: 1.6;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #343435;
+    color: white;
+    padding: 1rem 0;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.cta-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: #e67e22;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 1px;
+}
+
+.cta-button:hover {
+    background-color: #d35400;
+}
+
+
+.search-flights {
+    padding: 3rem;
+    background-color: white;
+    text-align: center;
+}
+
+.search-flights h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.flight-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.flight-form input, .flight-form button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.flight-form button {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.flight-form button:hover {
+    background-color: #2980b9;
+}
+
+.destinations-section {
+    padding: 3rem;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.destinations-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.destination-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+footer {
+    background-color: #343435;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: amiri quran;
+    font-size: 14px;
+}
+
+.card:hover {
+    transform: translateY(-10px);}
+
+    .content {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    video {
+        width: 100%;
+        height: 900px;
+    }
+    
+    .overlay-text {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white; 
+        font-size: 24px; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    }
